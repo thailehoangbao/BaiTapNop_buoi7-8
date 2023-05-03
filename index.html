@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Bài Tập Nộp Buổi 7-8</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        #array {
+            display: none;
+        }
+
+        .display-none {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container w-75">
+        <div class="row">
+            <div class="col-12">
+                <h1>Bài Tập Buổi 7-8</h1>
+                <div class="form-group">
+                    <label for="">Người Dùng Nhập Vào Số Nguyên</label>
+                    <input type="number" name="" id="numberInput" class="form-control w-50"
+                        placeholder="Nhập vào một số nguyên">
+                    <button id="btnClick" class="btn btn-outline-info mt-2">Thêm Số</button>
+                    <div class="alert alert-success w-50 mt-2" id="array">
+                        <span id="yourArray"></span>
+                    </div>
+                </div>
+                <div class="form-group w-50 mt-4">
+                    <label for="">Bài 1 + 2 : Tính tổng và đếm các số dương trong mảng</label>
+                    <br>
+                    <button class="btn btn-outline-danger" id="btnSum">Tính Tổng và Đếm số dương</button>
+                    <div class="alert alert-danger w-50 mt-2 display-none" id="sum"></div>
+                    <div class="alert alert-info w-75 mt-2 display-none" id="demSoDuong"></div>
+                </div>
+                <div class="form-group">
+                    <label for="">Bài 3 :Tìm giá trị nhỏ nhất trong mảng </label>
+                    <br>
+                    <button class="btn btn-outline-dark" id="btnMinValue">Tính Giá Trị Nhỏ Nhất</button>
+                    <div class="alert alert-primary w-50 mt-2 display-none" id="minValue"></div>
+                </div>
+                <div class="form-group">
+                    <label for="">Bài 4 :Tìm giá trị Dương nhỏ nhất trong mảng </label>
+                    <br>
+                    <button class="btn btn-outline-primary" id="btnMinValueInterger">Tính Giá Trị Nhỏ Nhất</button>
+                    <div class="alert alert-primary w-50 mt-2 display-none" id="minValueInterger"></div>
+                </div>
+                <div class="form-group">
+                    <label for="">Bài 5 :Tìm số chẵn cuối cùng trong mảng </label>
+                    <br>
+                    <button class="btn btn-outline-warning" id="btnSoChan">Tìm Số Chẵn</button>
+                    <div class="alert alert-warning w-50 mt-2 display-none" id="soChan"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+        <script src="./main.js"></script>
+</body>
+
+</html>
