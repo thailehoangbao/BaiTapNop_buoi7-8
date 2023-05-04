@@ -142,7 +142,82 @@ document.querySelector('#btnClick').onclick = function () {
         document.querySelector('#arrange').style.display = 'block';
         document.querySelector('#arrange').innerHTML = 'Mảng đã xấp xếp tăng dần : ' + myArray;
     };
-    
+
+    //Tìm Số Nguyên Tố
+    document.querySelector('#btnSNT').onclick = function () {
+        // Bước 1 : Nhận mảng myArray làm input 
+        // Bước 2 : Chạy dòng for tìm số nguyên tố đầu tiên trong mảng
+        for (var i = 0; i < myArray.length; i++) {
+            // sử dụng hàm soNguyenTo xét từng phần tử trong mảng có phải SNT
+            if (soNguyenTo(myArray[i]) !== -1) {
+                document.querySelector('#soNguyenTo').style.display = 'block';
+                // Phần tử nào là SNT xuất ra giá trị đầu tiên
+                document.querySelector('#soNguyenTo').innerHTML = 'Số Nguyên Tố Đầu Tiên là : ' + soNguyenTo(myArray[i]);
+                break;
+            };
+        };
+        if (i === myArray.length) {
+            //Chạy hết vòng for không có số nào là SNT thì i = chiều dài mảng => xuất ra -1s
+            document.querySelector('#soNguyenTo').style.display = 'block';
+            document.querySelector('#soNguyenTo').innerHTML = -1;
+        };
+    };
+
+};
+
+// Tìm Số Thực
+var myArray2 = [];
+document.querySelector('#btnInt').onclick = function () {
+    //Bước 1 : Lấy input từ người dùng nhập gán vào biến numberInput
+    while (true) {
+        var numberInput = document.querySelector('#numberInt').value * 1;
+        // Bước 2 :Sau đó dùng push() để gán giá trị người dùng nhập vào mảng.
+        myArray2.push(numberInput);
+        break;
+    };
+    // Bước 3 : Output xuất mảng hiển thị ra giao diện
+    document.querySelector('#array-2').style.display = 'block';
+    document.querySelector('#intArray').innerHTML = 'Mảng của bạn là : ' + myArray2;
+
+    // Tìm mảng số nguyên và mảng số thực và đếm số nguyên
+    document.querySelector('#btnSoNguyen').onclick = function () {
+        var soNguyenArray = [];
+        var soThucArray = [];
+        var dem = 0;
+        for (var i = 0; i < myArray2.length; i++) {
+            if (soNguyen(myArray2[i]) !== undefined) {
+                dem = dem + 1;
+                soNguyenArray.push(myArray2[i]);
+            } else {
+                soThucArray.push(myArray2[i]);
+            };
+        };
+        document.querySelector('#demSoNguyen').style.display = 'block';
+        document.querySelector('#arraySoNguyen').innerHTML = "<div class='alert alert-warning'>Mảng số nguyên là : " + soNguyenArray + " | Số nguyên có trong mảng là : " + dem + "</div>";
+        document.querySelector('#arraySoThuc').innerHTML = "<div class='alert alert-success'> Mảng số thực là : " + soThucArray + "</div>";
+    };
+    // Tìm số âm và số dương trong mảng
+    document.querySelector('#btnTimSoDuong').onclick = function () {
+        var demSoDuong = 0;
+        var demSoAm = 0;
+        for (var i = 0; i < myArray2.length ; i ++) {
+            if (soDuong(myArray2[i]) === 1) {
+                demSoDuong = demSoDuong + 1;
+            } else {
+                demSoAm = demSoAm + 1;
+            };
+        };
+        if ((demSoDuong - demSoAm ) > 0) {
+            document.querySelector('#resultSoDuong').style.display = 'block';
+            document.querySelector('#resultSoDuong').innerHTML = 'Số Dương là : '+ demSoDuong+ ' | Số Âm là : ' +demSoAm + ' | Số Dương > Số Âm';
+        } else if ((demSoDuong-demSoAm) < 0) {
+            document.querySelector('#resultSoDuong').style.display = 'block';
+            document.querySelector('#resultSoDuong').innerHTML = 'Số Dương là : '+ demSoDuong+ ' | Số Âm là : '+demSoAm + ' | Số Dương < Số Âm';
+        } else {
+            document.querySelector('#resultSoDuong').style.display = 'block';
+            document.querySelector('#resultSoDuong').innerHTML = 'Số Dương = Số Âm = ' + demSoDuong;
+        };
+    };
 };
 // Tạo 1 hàm tính tổng
 const sum = (sum, value) => {
@@ -186,4 +261,40 @@ function arrangeArray(arr) {
         };
     };
     return arr;
+};
+
+//Hàm tìm số nguyên tố
+
+var soNguyenTo = function (snt) {
+    if ((snt === 1) || (snt === 2)) {
+        return snt;
+    };
+    var count = 0;
+    for (var i = 2; i < snt; i++) {
+        if (snt % i === 0) {
+            count = count + 1;
+        };
+    };
+    if (count === 0) { return snt }
+    else { return -1 };
+};
+
+// Hàm tìm số nguyên
+var soNguyen = function (soNguyen) {
+    if (Number.isInteger(soNguyen)) {
+        return soNguyen;
+    } else {
+        return undefined;
+    };
+};
+
+
+// Hàm tìm số dương và số âm
+
+var soDuong = function (number) {
+    if (number > 0) {
+        return 1;
+    } else {
+        return -1;
+    }
 };
